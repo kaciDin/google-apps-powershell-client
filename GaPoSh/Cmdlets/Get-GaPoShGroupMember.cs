@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
 using Google.Apis.Admin.Directory.directory_v1.Data;
-using Google.Apis.Admin.Directory.directory_v1;
 
 
 namespace GaPoSh.Cmdlets

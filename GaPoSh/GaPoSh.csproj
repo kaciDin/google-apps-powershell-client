@@ -39,8 +39,20 @@
     <Reference Include="Google.Apis.Admin.Directory.directory_v1">
       <HintPath>..\packages\Google.Apis.Admin.Directory.directory_v1.1.5.0.12-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Admin.Directory.directory_v1.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis.Admin.Reports.reports_v1">
+      <HintPath>..\packages\Google.Apis.Admin.Reports.reports_v1.1.5.0.9-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Admin.Reports.reports_v1.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Audit.v1">
+      <HintPath>..\packages\Google.Apis.Audit.v1.1.5.0.21-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Audit.v1.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Apis.Authentication.OAuth2">
       <HintPath>..\packages\Google.Apis.Authentication.1.5.0-beta\lib\net40\Google.Apis.Authentication.OAuth2.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Calendar.v3">
+      <HintPath>..\packages\Google.Apis.Calendar.v3.1.5.0.58-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Calendar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v2">
+      <HintPath>..\packages\Google.Apis.Drive.v2.1.5.0.97-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Drive.v2.dll</HintPath>
     </Reference>
     <Reference Include="Google.Apis.Groupssettings.v1">
       <HintPath>..\packages\Google.Apis.Groupssettings.v1.1.5.0.32-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Groupssettings.v1.dll</HintPath>
@@ -109,6 +121,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\Get-GaPoShGroupAlias.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShOu.cs" />
     <Compile Include="Cmdlets\Get-GaPoShGroupSettings.cs" />
     <Compile Include="Cmdlets\Get-GaPoShMobileDevice.cs" />
     <Compile Include="Cmdlets\Get-GaPoShChromeDevice.cs" />
