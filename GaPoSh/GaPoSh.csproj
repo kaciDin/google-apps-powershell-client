@@ -109,6 +109,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\Get-GaPoShGroupSettings.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShMobileDevice.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShChromeDevice.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShUserAlias.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShGroupMember.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShGroup.cs" />
     <Compile Include="Cmdlets\NewGaPoShConnection.cs" />
     <Compile Include="Cmdlets\Get-GaPoShUser.cs" />
     <Compile Include="GaPoSh.cs">

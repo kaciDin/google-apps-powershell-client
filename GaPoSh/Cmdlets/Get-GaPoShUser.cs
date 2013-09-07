@@ -13,7 +13,6 @@ namespace GaPoSh.Cmdlets
     {
 
         [Parameter(Mandatory = true)] public Instance Session;
-        [Parameter(Mandatory = false)] public string UserId;
         [Parameter(Mandatory = false)] public bool All;
         [Parameter(Mandatory = false)] public bool DomainOnly;
         [Parameter(Mandatory = false)] public bool IncludeDeleted;
