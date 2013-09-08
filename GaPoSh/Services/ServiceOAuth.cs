@@ -1,13 +1,11 @@
-﻿using System;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using System.Security.Cryptography.X509Certificates;
 using Google.Apis.Admin.Directory.directory_v1;
 using Google.Apis.Authentication.OAuth2;
 using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
 using Google.Apis.Groupssettings.v1;
+using Google.Apis.Licensing.v1;
 using Google.Apis.Services;
 using Google.Apis.Util;
-using Google.Apis.Licensing.v1;
 
 namespace GaPoSh.Services
 {
@@ -41,7 +39,6 @@ namespace GaPoSh.Services
                          DirectoryService.Scopes.AdminDirectoryDeviceChromeos.GetStringValue() + @" " +
                          DirectoryService.Scopes.AdminDirectoryDeviceMobile.GetStringValue() + @" " +
                          DirectoryService.Scopes.AdminDirectoryDeviceMobileAction.GetStringValue();
-            
 
             var provider = new AssertionFlowClient(GoogleAuthenticationServer.Description, certificate)
             {
@@ -100,6 +97,5 @@ namespace GaPoSh.Services
 
             return new LicensingService((new BaseClientService.Initializer() { Authenticator = auth }));
         }
-
     }
 }

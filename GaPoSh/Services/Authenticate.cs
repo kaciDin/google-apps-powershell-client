@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using GaPoSh.Data;
+﻿using GaPoSh.Data;
 
 namespace GaPoSh.Services
 {
-    class Authenticate
+    internal class Authenticate
     {
         public static Instance ServiceAccount(ServiceAuth auth)
         {

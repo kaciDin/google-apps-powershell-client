@@ -2,24 +2,35 @@
 using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
-using Google.Apis.Admin.Directory.directory_v1.Data;
 using Google.Apis.Admin.Directory.directory_v1;
-
+using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, "GaPoShUser" )]
+    [Cmdlet(VerbsCommon.Get, "GaPoShUser")]
     public class GetGaPoShUser : PSCmdlet
     {
+        [Parameter(Mandatory = true)]
+        public Instance Session;
 
-        [Parameter(Mandatory = true)] public Instance Session;
-        [Parameter(Mandatory = false)] public bool All;
-        [Parameter(Mandatory = false)] public bool DomainOnly;
-        [Parameter(Mandatory = false)] public bool IncludeDeleted;
-        [Parameter(Mandatory = false)] public string Email;
-        [Parameter(Mandatory = false)] public string GivenName;
-        [Parameter(Mandatory = false)] public string FamilyName;
-        
+        [Parameter(Mandatory = false)]
+        public bool All;
+
+        [Parameter(Mandatory = false)]
+        public bool DomainOnly;
+
+        [Parameter(Mandatory = false)]
+        public bool IncludeDeleted;
+
+        [Parameter(Mandatory = false)]
+        public string Email;
+
+        [Parameter(Mandatory = false)]
+        public string GivenName;
+
+        [Parameter(Mandatory = false)]
+        public string FamilyName;
+
         protected override void ProcessRecord()
         {
             ProcessRequest(Session);
@@ -28,7 +39,7 @@ namespace GaPoSh.Cmdlets
         private void ProcessRequest(Instance request)
         {
             var service = request.DirectoryService.Users.List();
-            
+
             //Query Parameters
             //Search Single Domain or All Domains
             if (DomainOnly)
@@ -39,7 +50,7 @@ namespace GaPoSh.Cmdlets
             {
                 service.Customer = "my_customer";
             }
-            
+
             //Email?
             if (!String.IsNullOrEmpty(Email))
             {
@@ -57,7 +68,7 @@ namespace GaPoSh.Cmdlets
             {
                 service.Query = "givenName:" + GivenName + "*";
             }
-            
+
             //includeDeleted?
             service.ShowDeleted = IncludeDeleted ? "true" : "false";
 
@@ -70,9 +81,9 @@ namespace GaPoSh.Cmdlets
                 service.SortOrder = UsersResource.ListRequest.SortOrderEnum.ASCENDING;
                 service.MaxResults = 500;
             }
-            
+
             //No Parameters Defined
-            if(All == false && service.ShowDeleted == "false" && service.Query == null)
+            if (All == false && service.ShowDeleted == "false" && service.Query == null)
             {
                 Console.WriteLine("Error: Invalid Parameters!");
                 Console.WriteLine("Specify -All, -ShowDeleted, -Email, -FamilyName, or -GivenName");
@@ -82,7 +93,7 @@ namespace GaPoSh.Cmdlets
             var users = service.Execute();
 
             if (users == null) return;
-            
+
             Int64 totalresults = 0;
             var allUsers = new List<User>();
 
@@ -124,6 +135,5 @@ namespace GaPoSh.Cmdlets
 
             WriteObject(allUsers);
         }
-
     }
 }

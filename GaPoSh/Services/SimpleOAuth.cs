@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Diagnostics;
-using Google.Apis.Admin.Directory.directory_v1;
 using DotNetOpenAuth.OAuth2;
+using Google.Apis.Admin.Directory.directory_v1;
 using Google.Apis.Authentication.OAuth2;
 using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
 using Google.Apis.Groupssettings.v1;
+using Google.Apis.Licensing.v1;
 using Google.Apis.Services;
 using Google.Apis.Util;
-using Google.Apis.Licensing.v1;
 
 namespace GaPoSh.Services
 {
-    class SimpleOAuth
+    internal class SimpleOAuth
     {
         private static string _refreshToken;
         private readonly string _clientId;
         private readonly string _clientSecret;
-
 
         public SimpleOAuth(string clientId, string clientSecret)
         {
@@ -77,7 +76,6 @@ namespace GaPoSh.Services
                             Google.Apis.Admin.Directory.directory_v1.DirectoryService.Scopes.AdminDirectoryDeviceMobile.GetStringValue(),
                             Google.Apis.Admin.Directory.directory_v1.DirectoryService.Scopes.AdminDirectoryDeviceMobileAction.GetStringValue(),
                             GroupssettingsService.Scopes.AppsGroupsSettings.GetStringValue() });
-
 
             state.Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl);
 

@@ -4,35 +4,40 @@ using System.Management.Automation;
 using GaPoSh.Services;
 using Google.Apis.Admin.Directory.directory_v1.Data;
 
-
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, "GaPoShGroupMember" )]
+    [Cmdlet(VerbsCommon.Get, "GaPoShGroupMember")]
     public class GetGaPoShGroupMember : PSCmdlet
     {
+        [Parameter(Mandatory = true)]
+        public Instance Session;
 
-        [Parameter(Mandatory = true)] public Instance Session;
-        [Parameter(Mandatory = true)] public string GroupId;
-        [Parameter(Mandatory = false)] public string Roles;
-        [Parameter(Mandatory = false)] public bool DomainOnly;
-        
+        [Parameter(Mandatory = true)]
+        public string GroupId;
+
+        [Parameter(Mandatory = false)]
+        public string Roles;
+
+        [Parameter(Mandatory = false)]
+        public bool DomainOnly;
+
         protected override void ProcessRecord()
         {
             ProcessRequest(Session);
         }
 
         private void ProcessRequest(Instance request)
-        {   
+        {
             var service = request.DirectoryService.Members.List(GroupId);
-            
+
             //Query Parameters
             service.MaxResults = 500;
             service.Roles = Roles;
 
             var members = service.Execute();
-            
+
             if (members == null) return;
-            
+
             Int64 totalresults = 0;
             var allMembers = new List<Member>();
 
@@ -73,7 +78,6 @@ namespace GaPoSh.Cmdlets
             }
 
             WriteObject(allMembers);
-        } 
-
+        }
     }
 }

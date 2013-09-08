@@ -7,7 +7,6 @@ namespace GaPoSh.Cmdlets
     [Cmdlet(VerbsCommon.New, "GaPoShConnection")]
     public class NewGaPoShConnection : PSCmdlet
     {
-
         [Parameter(Mandatory = true)]
         public string Domain;
 
@@ -61,6 +60,5 @@ namespace GaPoSh.Cmdlets
         {
             WriteObject(services);
         }
-
     }
 }

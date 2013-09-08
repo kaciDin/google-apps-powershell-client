@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
-using Google.Apis.Admin.Directory.directory_v1.Data;
 using Google.Apis.Admin.Directory.directory_v1;
-
+using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, "GaPoShChromeDevice" )]
+    [Cmdlet(VerbsCommon.Get, "GaPoShChromeDevice")]
     public class GetGaPoShChromeDevice : PSCmdlet
     {
+        [Parameter(Mandatory = true)]
+        public Instance Session;
 
-        [Parameter(Mandatory = true)] public Instance Session;
-        
         protected override void ProcessRecord()
         {
             ProcessRequest(Session);
@@ -22,16 +21,16 @@ namespace GaPoSh.Cmdlets
         private void ProcessRequest(Instance request)
         {
             var service = request.DirectoryService.Chromeosdevices.List("my_customer");
-            
+
             //Query Parameters
             service.MaxResults = 500;
             service.OrderBy = ChromeosdevicesResource.ListRequest.OrderByEnum.SerialNumber;
             service.SortOrder = ChromeosdevicesResource.ListRequest.SortOrderEnum.ASCENDING;
 
             var chromeDevices = service.Execute();
-            
+
             if (chromeDevices == null) return;
-            
+
             Int64 totalresults = 0;
             var allChromeDevices = new List<ChromeOsDevice>();
 
@@ -72,7 +71,6 @@ namespace GaPoSh.Cmdlets
             }
 
             WriteObject(allChromeDevices);
-        } 
-
+        }
     }
 }

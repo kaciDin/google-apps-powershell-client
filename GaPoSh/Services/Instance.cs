@@ -1,10 +1,9 @@
-﻿using Google.Apis.Admin.Directory.directory_v1;
-using Google.Apis.Admin.Directory.directory_v1.Data;
-using Google.Apis.Groupssettings.v1;
-using Google.Apis.Util;
-using Google.Apis.Licensing.v1;
-using System;
+﻿using System;
 using GaPoSh.Data;
+using Google.Apis.Admin.Directory.directory_v1;
+using Google.Apis.Groupssettings.v1;
+using Google.Apis.Licensing.v1;
+using Google.Apis.Util;
 
 namespace GaPoSh.Services
 {

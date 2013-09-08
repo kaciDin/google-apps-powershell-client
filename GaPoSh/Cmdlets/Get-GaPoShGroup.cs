@@ -4,17 +4,20 @@ using System.Management.Automation;
 using GaPoSh.Services;
 using Google.Apis.Admin.Directory.directory_v1.Data;
 
-
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, "GaPoShGroup" )]
+    [Cmdlet(VerbsCommon.Get, "GaPoShGroup")]
     public class GetGaPoShGroup : PSCmdlet
     {
+        [Parameter(Mandatory = true)]
+        public Instance Session;
 
-        [Parameter(Mandatory = true)] public Instance Session;
-        [Parameter(Mandatory = false)] public string UserId;
-        [Parameter(Mandatory = false)] public bool DomainOnly;
-        
+        [Parameter(Mandatory = false)]
+        public string UserId;
+
+        [Parameter(Mandatory = false)]
+        public bool DomainOnly;
+
         protected override void ProcessRecord()
         {
             ProcessRequest(Session);
@@ -23,7 +26,7 @@ namespace GaPoSh.Cmdlets
         private void ProcessRequest(Instance request)
         {
             var service = request.DirectoryService.Groups.List();
-            
+
             //Query Parameters
             //Search Single Domain or All Domains
             if (DomainOnly)
@@ -44,9 +47,9 @@ namespace GaPoSh.Cmdlets
             }
 
             var groups = service.Execute();
-            
+
             if (groups == null) return;
-            
+
             Int64 totalresults = 0;
             var allGroups = new List<Group>();
 
@@ -87,7 +90,6 @@ namespace GaPoSh.Cmdlets
             }
 
             WriteObject(allGroups);
-        } 
-
+        }
     }
 }
