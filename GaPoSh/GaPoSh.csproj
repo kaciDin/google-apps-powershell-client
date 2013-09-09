@@ -121,6 +121,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\New-GaPoShGroupMember.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShGroupSettings.cs" />
     <Compile Include="Cmdlets\Set-GaPoShUserExternalId.cs" />
     <Compile Include="Cmdlets\Set-GaPoshUser.cs" />
     <Compile Include="Cmdlets\Get-GaPoShGroupAlias.cs" />
