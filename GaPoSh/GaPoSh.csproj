@@ -121,6 +121,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\Set-GaPoShUserEmail.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShUserRelation.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShUserPhone.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShUserOrganization.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShUserIms.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShUserAddress.cs" />
     <Compile Include="Cmdlets\New-GaPoShGroupMember.cs" />
     <Compile Include="Cmdlets\Set-GaPoShGroupSettings.cs" />
     <Compile Include="Cmdlets\Set-GaPoShUserExternalId.cs" />

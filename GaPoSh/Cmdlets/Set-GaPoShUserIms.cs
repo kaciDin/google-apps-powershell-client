@@ -6,8 +6,8 @@ using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Set, "GaPoShUserExternalId")]
-    public class SetGaPoShUserExternalId : PSCmdlet
+    [Cmdlet(VerbsCommon.Set, "GaPoShUserIms")]
+    public class SetGaPoShUserIms : PSCmdlet
     {
         [Parameter(Mandatory = true)]
         public Instance Session;
@@ -15,14 +15,17 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = true)]
-        public string Value;
+        [Parameter(Mandatory = false)] public string CustomProtocol;
 
-        [Parameter(Mandatory = true)]
-        public string Type;
+        [Parameter(Mandatory = false)] public string CustomType;
 
-        [Parameter(Mandatory = false)]
-        public string CustomType;
+        [Parameter(Mandatory = true)] public string Im;
+
+        [Parameter(Mandatory = false)] public bool? Primary;
+
+        [Parameter(Mandatory = true)] public string Protocol;
+
+        [Parameter(Mandatory = true)] public string Type;
 
         protected override void ProcessRecord()
         {
@@ -35,13 +38,16 @@ namespace GaPoSh.Cmdlets
             {
                 var user = new User
                     {
-                        ExternalIds = new List<UserExternalId>
+                        Ims = new List<UserIm>
                             {
-                                new UserExternalId
+                                new UserIm
                                     {
+                                        CustomProtocol = String.IsNullOrEmpty(CustomProtocol) ? null : CustomProtocol,
                                         CustomType = String.IsNullOrEmpty(CustomType) ? null : CustomType,
-                                        Type = String.IsNullOrEmpty(Type) ? null : Type,
-                                        Value = String.IsNullOrEmpty(Value) ? null : Value
+                                        Im = String.IsNullOrEmpty(Im) ? null : Im,
+                                        Primary = Primary,
+                                        Protocol = String.IsNullOrEmpty(Protocol) ? null : Protocol,
+                                        Type = String.IsNullOrEmpty(Type) ? null : Type
                                     }
                             }
                     };
@@ -52,7 +58,7 @@ namespace GaPoSh.Cmdlets
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to Update User External Id!");
+                Console.WriteLine("Failed to Update User IMS!");
                 Console.WriteLine("Error: " + e);
             }
         }

@@ -6,8 +6,8 @@ using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Set, "GaPoShUserExternalId")]
-    public class SetGaPoShUserExternalId : PSCmdlet
+    [Cmdlet(VerbsCommon.Set, "GaPoShUserRelation")]
+    public class SetGaPoShUserRelation : PSCmdlet
     {
         [Parameter(Mandatory = true)]
         public Instance Session;
@@ -15,14 +15,12 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = true)]
-        public string Value;
-
-        [Parameter(Mandatory = true)]
-        public string Type;
-
         [Parameter(Mandatory = false)]
         public string CustomType;
+
+        [Parameter(Mandatory = true)] public string Type;
+
+        [Parameter(Mandatory = true)] public string Value;
 
         protected override void ProcessRecord()
         {
@@ -35,9 +33,9 @@ namespace GaPoSh.Cmdlets
             {
                 var user = new User
                     {
-                        ExternalIds = new List<UserExternalId>
+                        Relations = new List<UserRelation>
                             {
-                                new UserExternalId
+                                new UserRelation
                                     {
                                         CustomType = String.IsNullOrEmpty(CustomType) ? null : CustomType,
                                         Type = String.IsNullOrEmpty(Type) ? null : Type,
@@ -52,7 +50,7 @@ namespace GaPoSh.Cmdlets
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to Update User External Id!");
+                Console.WriteLine("Failed to Update User Relation!");
                 Console.WriteLine("Error: " + e);
             }
         }

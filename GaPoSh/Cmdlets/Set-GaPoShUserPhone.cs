@@ -6,8 +6,8 @@ using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Set, "GaPoShUserExternalId")]
-    public class SetGaPoShUserExternalId : PSCmdlet
+    [Cmdlet(VerbsCommon.Set, "GaPoShUserPhone")]
+    public class SetGaPoShUserPhone : PSCmdlet
     {
         [Parameter(Mandatory = true)]
         public Instance Session;
@@ -15,14 +15,14 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = true)]
-        public string Value;
-
-        [Parameter(Mandatory = true)]
-        public string Type;
-
         [Parameter(Mandatory = false)]
         public string CustomType;
+
+        [Parameter(Mandatory = true)] public bool? Primary;
+
+        [Parameter(Mandatory = false)] public string Type;
+
+        [Parameter(Mandatory = false)] public string Value;
 
         protected override void ProcessRecord()
         {
@@ -35,11 +35,12 @@ namespace GaPoSh.Cmdlets
             {
                 var user = new User
                     {
-                        ExternalIds = new List<UserExternalId>
+                        Phones = new List<UserPhone>
                             {
-                                new UserExternalId
+                                new UserPhone
                                     {
                                         CustomType = String.IsNullOrEmpty(CustomType) ? null : CustomType,
+                                        Primary = Primary,
                                         Type = String.IsNullOrEmpty(Type) ? null : Type,
                                         Value = String.IsNullOrEmpty(Value) ? null : Value
                                     }
@@ -52,7 +53,7 @@ namespace GaPoSh.Cmdlets
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to Update User External Id!");
+                Console.WriteLine("Failed to Update User Phone!");
                 Console.WriteLine("Error: " + e);
             }
         }
