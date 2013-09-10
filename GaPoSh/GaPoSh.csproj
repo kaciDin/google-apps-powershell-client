@@ -121,6 +121,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\Remove-GaPoShGroupAlias.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShUserPhoto.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShUserAlias.cs" />
+    <Compile Include="Cmdlets\Set-GaPoshUserAdmin.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShUser.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShOrgUnit.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShMobileDevice.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShGroupMember.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShGroup.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShGroupMember.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShUserPhoto.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShChromeDevice.cs" />
+    <Compile Include="Cmdlets\New-GaPoShGroupAlias.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShOrgUnit.cs" />
+    <Compile Include="Cmdlets\New-GaPoShOrgUnit.cs" />
+    <Compile Include="Cmdlets\New-GaPoShUserAlias.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShGroup.cs" />
     <Compile Include="Cmdlets\Set-GaPoShUserEmail.cs" />
     <Compile Include="Cmdlets\Set-GaPoShUserRelation.cs" />
     <Compile Include="Cmdlets\Set-GaPoShUserPhone.cs" />
@@ -132,7 +149,7 @@
     <Compile Include="Cmdlets\Set-GaPoShUserExternalId.cs" />
     <Compile Include="Cmdlets\Set-GaPoshUser.cs" />
     <Compile Include="Cmdlets\Get-GaPoShGroupAlias.cs" />
-    <Compile Include="Cmdlets\Get-GaPoShOu.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShOrgUnit.cs" />
     <Compile Include="Cmdlets\Get-GaPoShGroupSettings.cs" />
     <Compile Include="Cmdlets\Get-GaPoShMobileDevice.cs" />
     <Compile Include="Cmdlets\Get-GaPoShChromeDevice.cs" />

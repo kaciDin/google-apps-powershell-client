@@ -4,8 +4,8 @@ using Google.Apis.Admin.Directory.directory_v1;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, "GaPoShOu")]
-    public class GetGaPoShOu : PSCmdlet
+    [Cmdlet(VerbsCommon.Get, "GaPoShOrgUnit")]
+    public class GetGaPoShOrgUnit : PSCmdlet
     {
         [Parameter(Mandatory = true)]
         public Instance Session;

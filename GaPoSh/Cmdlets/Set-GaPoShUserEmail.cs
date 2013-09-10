@@ -53,7 +53,7 @@ namespace GaPoSh.Cmdlets
             }
             catch (Exception e)
             {
-                Console.WriteLine("Failed to Update User Relation!");
+                Console.WriteLine("Failed to Update User Email!");
                 Console.WriteLine("Error: " + e);
             }
         }
