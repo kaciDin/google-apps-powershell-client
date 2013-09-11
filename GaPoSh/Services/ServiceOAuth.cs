@@ -110,8 +110,7 @@ namespace GaPoSh.Services
             var provider = new AssertionFlowClient(GoogleAuthenticationServer.Description, certificate)
             {
                 ServiceAccountId = _serviceAccountEmail,
-                Scope = "https://www.googleapis.com/auth/admin.reports.audit.readonly" + @" " +
-                        "https://www.googleapis.com/auth/admin.reports.audit.readonly"
+                Scope = "https://www.googleapis.com/auth/admin.reports.audit.readonly"
             };
 
             if (_serviceAccountUser != string.Empty)
