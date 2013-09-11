@@ -14,9 +14,6 @@ namespace GaPoSh.Cmdlets
         public string UserId;
 
         [Parameter(Mandatory = false)]
-        public bool DomainOnly;
-
-        [Parameter(Mandatory = false)]
         public bool All;
 
         [Parameter(Mandatory = false)]

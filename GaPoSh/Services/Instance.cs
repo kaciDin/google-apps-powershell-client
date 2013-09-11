@@ -3,6 +3,10 @@ using GaPoSh.Data;
 using Google.Apis.Admin.Directory.directory_v1;
 using Google.Apis.Groupssettings.v1;
 using Google.Apis.Licensing.v1;
+using Google.Apis.Drive.v2;
+using Google.Apis.Calendar.v3;
+using Google.Apis.Audit.v1;
+using Google.Apis.Admin.Reports.reports_v1;
 using Google.Apis.Util;
 
 namespace GaPoSh.Services
@@ -13,6 +17,10 @@ namespace GaPoSh.Services
         public DirectoryService DirectoryService;
         public GroupssettingsService GroupSettingsService;
         public LicensingService LicensingService;
+        public ReportsService ReportsService;
+        public CalendarService CalendarService;
+        public DriveService DriveService;
+        public AuditService AuditService;
 
         public Instance(ServiceAuth auth)
         {
@@ -51,17 +59,26 @@ namespace GaPoSh.Services
         private void ServiceInstance(string accountId, string certPath)
         {
             var auth = new ServiceOAuth(accountId, certPath);
-            DirectoryService = auth.BuildDirectoryService();
+            DirectoryService = auth.DirectoryService();
             GroupSettingsService = auth.GroupSettingsService();
             LicensingService = auth.LicensingService();
+            ReportsService = auth.ReportsService();
+            CalendarService = auth.CalendarService();
+            DriveService = auth.DriveService();
+            AuditService = auth.AuditService();
         }
 
         private void ServiceInstance(string accountId, string certPath, string serviceUser)
         {
             var auth = new ServiceOAuth(accountId, certPath, serviceUser);
-            DirectoryService = auth.BuildDirectoryService();
+            DirectoryService = auth.DirectoryService();
             GroupSettingsService = auth.GroupSettingsService();
             LicensingService = auth.LicensingService();
+            ReportsService = auth.ReportsService();
+            CalendarService = auth.CalendarService();
+            DriveService = auth.DriveService();
+            AuditService = auth.AuditService();
+
         }
 
         private void SimpleInstance(string clientId, string clientSecret)

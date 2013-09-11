@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
 using Google.Apis.Admin.Directory.directory_v1.Data;
@@ -12,7 +11,8 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public Instance Session;
 
-        [Parameter(Mandatory = false)] public string OrgUnitId;
+        [Parameter(Mandatory = false)]
+        public string OrgUnitId;
 
         [Parameter(Mandatory = false)]
         public bool? BlockInheritance;
@@ -47,7 +47,7 @@ namespace GaPoSh.Cmdlets
                         Name = String.IsNullOrEmpty(Name) ? null : Name
                     };
 
-                var service = request.DirectoryService.Orgunits.Update(orgUnit,"my_customer",OrgUnitId);
+                var service = request.DirectoryService.Orgunits.Update(orgUnit, "my_customer", OrgUnitId);
 
                 service.Execute();
             }

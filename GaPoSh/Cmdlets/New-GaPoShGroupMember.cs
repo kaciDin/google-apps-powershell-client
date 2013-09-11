@@ -29,7 +29,7 @@ namespace GaPoSh.Cmdlets
         {
             try
             {
-                var member = new Member {Email = null, Role = null};
+                var member = new Member { Email = null, Role = null };
 
                 var service = request.DirectoryService.Members.Insert(member, GroupId);
                 WriteObject(service.Execute());

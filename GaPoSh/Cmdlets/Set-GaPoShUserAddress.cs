@@ -77,7 +77,6 @@ namespace GaPoSh.Cmdlets
                                         SourceIsStructured = SourceIsStructured,
                                         StreetAddress = String.IsNullOrEmpty(StreetAddress) ? null : StreetAddress,
                                         Type = String.IsNullOrEmpty(Type) ? null : Type
-
                                     }
                             }
                     };

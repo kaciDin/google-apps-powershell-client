@@ -18,11 +18,14 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = false)]
         public string CustomType;
 
-        [Parameter(Mandatory = true)] public bool? Primary;
+        [Parameter(Mandatory = true)]
+        public bool? Primary;
 
-        [Parameter(Mandatory = false)] public string Type;
+        [Parameter(Mandatory = false)]
+        public string Type;
 
-        [Parameter(Mandatory = false)] public string Value;
+        [Parameter(Mandatory = false)]
+        public string Value;
 
         protected override void ProcessRecord()
         {

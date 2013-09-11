@@ -14,7 +14,8 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = true)] public bool? Status;
+        [Parameter(Mandatory = true)]
+        public bool? Status;
 
         protected override void ProcessRecord()
         {
@@ -31,7 +32,7 @@ namespace GaPoSh.Cmdlets
                     };
 
                 var service = request.DirectoryService.Users.MakeAdmin(admin, UserId);
-               
+
                 WriteObject(service.Execute());
             }
             catch (Exception e)

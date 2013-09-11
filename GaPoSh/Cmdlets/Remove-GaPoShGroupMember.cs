@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
-using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {

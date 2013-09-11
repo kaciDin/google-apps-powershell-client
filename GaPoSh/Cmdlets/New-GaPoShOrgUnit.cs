@@ -14,15 +14,20 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = false)] public bool? BlockInheritance;
+        [Parameter(Mandatory = false)]
+        public bool? BlockInheritance;
 
-        [Parameter(Mandatory = false)] public string Description;
+        [Parameter(Mandatory = false)]
+        public string Description;
 
-        [Parameter(Mandatory = false)] public string OrgUnitPath;
+        [Parameter(Mandatory = false)]
+        public string OrgUnitPath;
 
-        [Parameter(Mandatory = true)] public string ParentOrgUnitPath;
+        [Parameter(Mandatory = true)]
+        public string ParentOrgUnitPath;
 
-        [Parameter(Mandatory = true)] public string Name;
+        [Parameter(Mandatory = true)]
+        public string Name;
 
         protected override void ProcessRecord()
         {

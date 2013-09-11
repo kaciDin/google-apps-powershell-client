@@ -15,17 +15,23 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = false)] public string CustomProtocol;
+        [Parameter(Mandatory = false)]
+        public string CustomProtocol;
 
-        [Parameter(Mandatory = false)] public string CustomType;
+        [Parameter(Mandatory = false)]
+        public string CustomType;
 
-        [Parameter(Mandatory = true)] public string Im;
+        [Parameter(Mandatory = true)]
+        public string Im;
 
-        [Parameter(Mandatory = false)] public bool? Primary;
+        [Parameter(Mandatory = false)]
+        public bool? Primary;
 
-        [Parameter(Mandatory = true)] public string Protocol;
+        [Parameter(Mandatory = true)]
+        public string Protocol;
 
-        [Parameter(Mandatory = true)] public string Type;
+        [Parameter(Mandatory = true)]
+        public string Type;
 
         protected override void ProcessRecord()
         {

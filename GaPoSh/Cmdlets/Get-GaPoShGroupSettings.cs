@@ -14,9 +14,6 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = false)]
         public string groupId;
 
-        [Parameter(Mandatory = false)]
-        public bool DomainOnly;
-
         protected override void ProcessRecord()
         {
             ProcessRequest(Session);

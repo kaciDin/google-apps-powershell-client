@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
-using Google.Apis.Admin.Directory.directory_v1.Data;
 
 namespace GaPoSh.Cmdlets
 {
@@ -15,7 +13,8 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = true)]
         public string UserId;
 
-        [Parameter(Mandatory = true)] public string Alias;
+        [Parameter(Mandatory = true)]
+        public string Alias;
 
         protected override void ProcessRecord()
         {

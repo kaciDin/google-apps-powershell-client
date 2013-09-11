@@ -121,6 +121,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cmdlets\Get-GaPoShAuditCalendar.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShAuditActivities.cs" />
     <Compile Include="Cmdlets\Remove-GaPoShGroupAlias.cs" />
     <Compile Include="Cmdlets\Remove-GaPoShUserPhoto.cs" />
     <Compile Include="Cmdlets\Remove-GaPoShUserAlias.cs" />

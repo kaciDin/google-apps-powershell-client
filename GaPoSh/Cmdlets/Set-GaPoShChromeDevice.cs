@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Management.Automation;
 using GaPoSh.Services;
 using Google.Apis.Admin.Directory.directory_v1;
@@ -19,13 +18,17 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = false)]
         public string Projection;
 
-        [Parameter(Mandatory = false)] public string AnnotatedLocation;
+        [Parameter(Mandatory = false)]
+        public string AnnotatedLocation;
 
-        [Parameter(Mandatory = false)] public string AnnotatedUser;
+        [Parameter(Mandatory = false)]
+        public string AnnotatedUser;
 
-        [Parameter(Mandatory = false)] public string Notes;
+        [Parameter(Mandatory = false)]
+        public string Notes;
 
-        [Parameter(Mandatory = false)] public string OrgUnitPath;
+        [Parameter(Mandatory = false)]
+        public string OrgUnitPath;
 
         protected override void ProcessRecord()
         {
@@ -42,7 +45,7 @@ namespace GaPoSh.Cmdlets
                         AnnotatedUser = String.IsNullOrEmpty(AnnotatedUser) ? null : AnnotatedUser,
                         Notes = String.IsNullOrEmpty(Notes) ? null : Notes
                     };
-                
+
                 var service = request.DirectoryService.Chromeosdevices.Update(device, "my_customer", DeviceId);
                 service.Projection = ChromeosdevicesResource.UpdateRequest.ProjectionEnum.FULL;
                 service.Execute();

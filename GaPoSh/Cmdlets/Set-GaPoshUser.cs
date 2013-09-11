@@ -58,7 +58,7 @@ namespace GaPoSh.Cmdlets
                         FamilyName = String.IsNullOrEmpty(FamilyName) ? null : FamilyName,
                         GivenName = String.IsNullOrEmpty(GivenName) ? null : GivenName
                     };
-                
+
                 var user = new User
                     {
                         PrimaryEmail = String.IsNullOrEmpty(PrimaryEmail) ? null : PrimaryEmail,
@@ -73,7 +73,7 @@ namespace GaPoSh.Cmdlets
                     };
 
                 var service = request.DirectoryService.Users.Update(user, UserId);
-               
+
                 WriteObject(service.Execute());
             }
             catch (Exception e)
