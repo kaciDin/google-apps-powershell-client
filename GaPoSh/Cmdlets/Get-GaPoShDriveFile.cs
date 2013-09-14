@@ -7,8 +7,8 @@ using Google.Apis.Drive.v2.Data;
 
 namespace GaPoSh.Cmdlets
 {
-    [Cmdlet(VerbsCommon.Get, "GaPoShDriveFiles")]
-    public class GetGaPoShDriveFiles : PSCmdlet
+    [Cmdlet(VerbsCommon.Get, "GaPoShDriveFile")]
+    public class GetGaPoShDriveFile : PSCmdlet
     {
         [Parameter(Mandatory = true)]
         public Instance Session;

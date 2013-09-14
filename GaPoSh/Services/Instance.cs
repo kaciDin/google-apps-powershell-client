@@ -7,6 +7,7 @@ using Google.Apis.Drive.v2;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Audit.v1;
 using Google.Apis.Admin.Reports.reports_v1;
+using Google.Apis.Tasks.v1;
 using Google.Apis.Util;
 
 namespace GaPoSh.Services
@@ -21,6 +22,7 @@ namespace GaPoSh.Services
         public CalendarService CalendarService;
         public DriveService DriveService;
         public AuditService AuditService;
+        public TasksService TasksService;
 
         public Instance(ServiceAuth auth)
         {
@@ -66,6 +68,7 @@ namespace GaPoSh.Services
             CalendarService = auth.CalendarService();
             DriveService = auth.DriveService();
             AuditService = auth.AuditService();
+            TasksService = auth.TasksService();
         }
 
         private void ServiceInstance(string accountId, string certPath, string serviceUser)
@@ -78,7 +81,7 @@ namespace GaPoSh.Services
             CalendarService = auth.CalendarService();
             DriveService = auth.DriveService();
             AuditService = auth.AuditService();
-
+            TasksService = auth.TasksService();
         }
 
         private void SimpleInstance(string clientId, string clientSecret)

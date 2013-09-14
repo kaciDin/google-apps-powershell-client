@@ -18,7 +18,7 @@ namespace GaPoSh.Cmdlets
         [Parameter(Mandatory = false)]
         public string CustomType;
 
-        [Parameter(Mandatory = true)]
+        [Parameter(Mandatory = false)]
         public bool? Primary;
 
         [Parameter(Mandatory = false)]

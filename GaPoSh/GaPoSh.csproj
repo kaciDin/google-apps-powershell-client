@@ -63,6 +63,9 @@
     <Reference Include="Google.Apis.PlatformServices">
       <HintPath>..\packages\Google.Apis.1.5.0-beta\lib\net40\Google.Apis.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="Google.Apis.Tasks.v1">
+      <HintPath>..\packages\Google.Apis.Tasks.v1.1.5.0.19-beta\lib\portable-net4+sl4+wp71+win8\Google.Apis.Tasks.v1.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -121,7 +124,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cmdlets\Get-GaPoShDriveFiles.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShUserLicense.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShUserLicense.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShUserLicense.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShTask.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShTask.cs" />
+    <Compile Include="Cmdlets\New-GaPoshTask.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShTask.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShTaskList.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShTaskList.cs" />
+    <Compile Include="Cmdlets\New-GaPoshTaskList.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShTaskList.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShDriveApps.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShDriveFileRevisions.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShDriveChanges.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShDrive.cs" />
+    <Compile Include="Cmdlets\Remove-GaPoShDriveFile.cs" />
+    <Compile Include="Cmdlets\Set-GaPoShDriveFile.cs" />
+    <Compile Include="Cmdlets\Get-GaPoShDriveFile.cs" />
     <Compile Include="Cmdlets\Get-GaPoShAuditCalendar.cs" />
     <Compile Include="Cmdlets\Get-GaPoShAuditActivities.cs" />
     <Compile Include="Cmdlets\Remove-GaPoShGroupAlias.cs" />

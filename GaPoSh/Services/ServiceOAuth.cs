@@ -8,6 +8,7 @@ using Google.Apis.Drive.v2;
 using Google.Apis.Calendar.v3;
 using Google.Apis.Audit.v1;
 using Google.Apis.Admin.Reports.reports_v1;
+using Google.Apis.Tasks.v1;
 using Google.Apis.Services;
 using Google.Apis.Util;
 
@@ -184,6 +185,27 @@ namespace GaPoSh.Services
             var auth = new OAuth2Authenticator<AssertionFlowClient>(provider, AssertionFlowClient.GetState);
 
             return new AuditService((new BaseClientService.Initializer() { Authenticator = auth }));
+        }
+
+        public TasksService TasksService()
+        {
+            var certificate = new X509Certificate2(
+               _serviceAccountCertPath, "notasecret", X509KeyStorageFlags.Exportable);
+
+            var provider = new AssertionFlowClient(GoogleAuthenticationServer.Description, certificate)
+            {
+                ServiceAccountId = _serviceAccountEmail,
+                Scope = "https://www.googleapis.com/auth/tasks"
+            };
+
+            if (_serviceAccountUser != string.Empty)
+            {
+                provider.ServiceAccountUser = _serviceAccountUser;
+            }
+
+            var auth = new OAuth2Authenticator<AssertionFlowClient>(provider, AssertionFlowClient.GetState);
+
+            return new TasksService((new BaseClientService.Initializer() { Authenticator = auth }));
         }
     }
 }
